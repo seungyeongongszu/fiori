@@ -1,0 +1,95 @@
+<mvc:View controllerName="practiceb1901.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:core="sap.ui.core">
+        <Page id="page" title="{i18n>title}">
+      
+            <Panel>
+                <FlexBox
+                    height="100px"
+                    alignItems="Start"
+                    justifyContent="Center">
+                 <VBox>
+
+                    <Input id="inputId"></Input>
+                    <Input id="inputId2" change="onChange"></Input> 
+                    <Select width="100px" id="selectId">
+                        <items>
+                            <core:Item key="plus" text="+" />
+                            <core:Item key="minus" text="-" />
+                            <core:Item key="multiple" text="*" />
+                            <core:Item key="division" text="/" />
+                        </items>
+                    </Select>
+                    <Button type="Emphasized" id="calcButton" icon="sap-icon://touch" text="계산 실행" press=".onCalc"/>
+                    
+                 </VBox>
+               
+                </FlexBox>
+                <FlexBox
+                    height="100px"
+                    alignItems="Start"
+                    justifyContent="Start">
+                <Text  text="계산 결과 = "/>
+                <Text id="textId" />
+                </FlexBox>
+            </Panel>
+            	
+            <t:Table
+             id="tableId"
+				rows="{main>/list1}"
+				selectionMode="MultiToggle"
+				visibleRowCount="7"
+                rowActionCount="1"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<t:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title1" text="Products"/>
+                        <ToolbarSpacer />
+                        <Button text="Delete" icon="sap-icon://delete" press=".onDelete"/>
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns>
+					<t:Column >
+						<Label text="num1" />
+						<t:template>
+							<Text text="{main>num1}" wrapping="false" />
+						</t:template>
+					</t:Column>
+                    </t:columns>
+                    <t:columns>
+					<t:Column >
+						<Label text="num2" />
+						<t:template>
+							<Text text="{main>num2}" wrapping="false" />
+						</t:template>
+					</t:Column>
+                    </t:columns>
+                                       <t:columns>
+					<t:Column >
+						<Label text="Operator" />
+						<t:template>
+							<Text text="{main>operator}" wrapping="false" />
+						</t:template>
+					</t:Column>
+                    </t:columns>
+                                       <t:columns>
+					<t:Column >
+						<Label text="result" />
+						<t:template>
+							<Text text="{main>result}" wrapping="false" />
+						</t:template>
+					</t:Column>
+                    </t:columns>
+                    <t:rowActionTemplate>
+                        <t:RowAction >
+                            <t:items>
+                                <t:RowActionItem type="Delete" press=".onRowActionDel" />
+                            </t:items>
+                        </t:RowAction>
+                    </t:rowActionTemplate>
+			</t:Table>
+        </Page>
+</mvc:View>

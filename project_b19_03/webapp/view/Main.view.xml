@@ -1,0 +1,86 @@
+<mvc:View controllerName="test.projectb1903.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:core="sap.ui.core">
+        <Page id="page" title="{i18n>title}">
+      
+            <Panel headerText="{main>/list/0/Home}">
+                <FlexBox
+                    height="100px"
+                    alignItems="Start"
+                    justifyContent="Center">
+                 <VBox>
+
+                    <Input id="inputId"></Input>
+                    <Input id="inputId2" change="onChange"></Input> 
+                    <Select width="100px" id="selectId">
+                        <items>
+                            <core:Item key="plus" text="+" />
+                            <core:Item key="minus" text="-" />
+                            <core:Item key="multiple" text="*" />
+                            <core:Item key="division" text="/" />
+                        </items>
+                    </Select>
+                    <Button type="Emphasized" id="calcButton" icon="sap-icon://touch" text="계산 실행" press=".onCalc"/>
+                    
+                 </VBox>
+               
+                </FlexBox>
+                <FlexBox
+                    height="100px"
+                    alignItems="Start"
+                    justifyContent="Start">
+                <Text  text="계산 결과 = "/>
+                <Text id="textId" />
+                </FlexBox>
+            </Panel>
+            	
+            <t:Table
+				rows="{main>/list1}"
+				selectionMode="MultiToggle"
+				visibleRowCount="7"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<t:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title1" text="Products"/>
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns>
+					<t:Column width="11rem">
+						<Label text="num1" />
+						<t:template>
+							<Text text="{main>num1}" wrapping="false" />
+						</t:template>
+					</t:Column>
+                    </t:columns>
+                    <t:columns>
+					<t:Column width="11rem">
+						<Label text="num2" />
+						<t:template>
+							<Text text="{main>num2}" wrapping="false" />
+						</t:template>
+					</t:Column>
+                    </t:columns>
+                                       <t:columns>
+					<t:Column width="11rem">
+						<Label text="Operator" />
+						<t:template>
+							<Text text="{main>operator}" wrapping="false" />
+						</t:template>
+					</t:Column>
+                    </t:columns>
+                                       <t:columns>
+					<t:Column width="11rem">
+						<Label text="result" />
+						<t:template>
+							<Text text="{main>result}" wrapping="false" />
+						</t:template>
+					</t:Column>
+                    </t:columns>
+                    
+			</t:Table>
+            <Input binding="{main>/obj}" value="{main>key}"/>
+        </Page>
+</mvc:View>

@@ -1,0 +1,105 @@
+<c:FragmentDefinition 
+    
+    xmlns:c="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:f="sap.f">
+
+        <Dialog id="idDialog"
+                    contentHeight="500px" 
+					contentWidth ="90%"><!--사이즈 단위는 %,px,rem,em-->
+					
+		<content>
+            <Table id="idProductsTable"
+				sticky="HeaderToolbar,ColumnHeaders"
+				inset="false"
+				items="{/Products}"
+					class="sapFDynamicPageAlignContent"
+				width="auto">
+			<headerToolbar>
+				<Toolbar>
+					<Title text="Products" level="H2"/>
+				</Toolbar>
+			</headerToolbar>
+			<columns>
+				<Column>
+					<Text text="ProductID" />
+				</Column>
+				<Column>
+					<Text text="ProductName" />
+				</Column>
+				<Column>
+					<Text text="SupplierID" />
+				</Column>
+				<Column>
+					<Text text="CategoryID" />
+				</Column>
+				<Column>
+					<Text text="QuantityPerUnit" />
+				</Column>
+				<Column>
+					<Text text="UnitPrice" />
+				</Column>
+				<Column>
+					<Text text="UnitsInStock" />
+				</Column>
+				<Column>
+					<Text text="UnitsOnOrde" />
+				</Column>
+				<Column>
+					<Text text="ReorderLevel" />
+				</Column>
+				<Column>
+					<Text text="Discontinued" />
+				</Column>
+				<Column>
+					<Text text="Status" />
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{ProductID}" />
+					</cells>
+					<cells>
+						<Text text="{ProductName}" />
+					</cells>
+					<cells>
+						<Text text="{SupplierID}" />
+					</cells>
+					<cells>
+						<Text text="{CategoryID}" />
+					</cells>
+					<cells>
+						<Text text="{QuantityPerUnit}" />
+					</cells>
+					<cells>
+						<Text text="{UnitPrice}" />
+					</cells>
+					<cells>
+						<Text text="{UnitsInStock}" />
+					</cells>
+					<cells>
+						<Text text="{UnitsOnOrder}" />
+					</cells>
+						<cells>
+						<Text text="{ReorderLevel}" />
+					</cells>
+					<cells>
+					<Text text="{path :'Discontinued',
+									formatter : '.formatter.transformDiscontinued'}" />
+					</cells>
+					<cells>
+					<c:Icon src="{=${UnitPrice}>15 ? 'sap-icon://thumb-up' : 'sap-icon://thumb-down'}" 
+                        color="{=${UnitPrice}>15 ? 'rgb(27, 234, 33)' : 'rgb(234, 52, 27)'}"
+                />
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+        </content>
+        <endButton>
+            <Button text="Close" press="onClose" />
+        </endButton>
+    </Dialog>
+</c:FragmentDefinition>

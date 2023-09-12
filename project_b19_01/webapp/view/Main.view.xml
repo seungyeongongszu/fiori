@@ -1,0 +1,68 @@
+<mvc:View controllerName="project01.projectb1901.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="타이틀">
+        <VBox >
+            <Text id="idText" text="Hello World"/>
+            <Button text="MyButton" type="Emphasized" press="onClick" />
+            <Input id="inText" />
+            <Table
+                id="friendsTable">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title
+                            text="Friends"
+                            titleStyle="H3"
+                            level="H3"/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="User Name"/>
+                    </Column>
+                    <Column>
+                        <Text text="First Name"/>
+                    </Column>
+                    <Column>
+                        <Text text="Last Name"/>
+                    </Column>
+                    <Column>
+                        <Text text="Age"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="정승연"/>
+                        </cells>
+                        <cells>
+                            <Text text="정"/>
+                        </cells>
+                        <cells>
+                            <Text text="승연"/>
+                        </cells>
+                        <cells>
+                            <Text text="25"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="정승연"/>
+                        </cells>
+                        <cells>
+                            <Text text="정"/>
+                        </cells>
+                        <cells>
+                            <Text text="승연"/>
+                        </cells>
+                        <cells>
+                            <Text text="25"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+    </Page>
+</mvc:View>
